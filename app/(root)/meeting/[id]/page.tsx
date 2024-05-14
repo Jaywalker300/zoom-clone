@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 "use client"
 import Loader from '@/components/Loader'
 import MeetingRoom from '@/components/MeetingRoom'
@@ -10,7 +10,7 @@ import React,{useState} from 'react'
 
 const Meeting = ({params: {id}}: {params:{id:string}}) => {
   const { user,isLoaded} = useUser()
-  const [isSetupComplete, setIsSetUpComplete] = useState(false)
+  const [isSetupComplete, setIsSetupComplete] = useState(false)
   const {call , isCallLoading} = useGetCallById(id)
 
   if (!isLoaded || isCallLoading) return <Loader/>
@@ -21,7 +21,7 @@ const Meeting = ({params: {id}}: {params:{id:string}}) => {
         <StreamTheme>
          {
           !isSetupComplete ? (
-            <MeetingSetup setIsSetUpComplete={setIsSetUpComplete}/>
+            <MeetingSetup setIsSetupComplete={setIsSetupComplete}/>
           ) : (
             <MeetingRoom/>
           )
